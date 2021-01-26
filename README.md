@@ -20,7 +20,7 @@ Feel free to review the source code of the modified script before installation.
 
 ```bash
 cd /tmp/
-wget https://raw.githubusercontent.com//tirtadji-com/Argon-One-Scripts-for-Raspi-running-Debian/main/argon1.sh
+wget https://raw.githubusercontent.com/tirtadji-com/Argon-One-Scripts-for-Raspi-running-Debian/main/argon1.sh
 chmod a+x argon1.sh
 sudo ./argon1.sh
 ```
