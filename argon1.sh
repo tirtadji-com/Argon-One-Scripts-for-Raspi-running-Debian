@@ -2,7 +2,7 @@
 
 # NOTE(cme): this script is based on the original script
 #            for the argon1 case supposed to run on raspbian
-#            Modifications were made to work on Ubuntu 20.04
+#            Modifications were made to work on Debian 10.7
 #            This script was tested on a Raspberry Pi 4, with 4Gb RAM
 
 argon_create_file() {
@@ -26,7 +26,7 @@ argon_check_pkg() {
 # NOTE(cme): original raspbian packages
 # pkglist=(raspi-gpio python-rpi.gpio python3-rpi.gpio python-smbus python3-smbus i2c-tools)
 
-# NOTE(cme): ubuntu packages; since python2 is not supported - not well anyway,
+# NOTE(cme): Debian packages; since python2 is not supported - not well anyway,
 #            we'll modify everything to work with python3)
 pkglist=(python3-rpi.gpio python3-smbus)
 
@@ -59,7 +59,7 @@ tempmonscript=/usr/bin/argonone-tempmon
 daemonfanservice=/lib/systemd/system/$daemonname.service
 
 # NOTE(cme): this is apparently used to enable i2c and serial.
-#            not sure if this is already done on Ubuntu...
+#            not sure if this is already done on Debian...
 #  raspi-config nonint do_i2c 0
 #  raspi-config nonint do_serial 0	
 	
@@ -69,7 +69,7 @@ echo "Step 2 - generating $daemonconfigfile"
 echo "*****************************************************"
 	
 # NOTE(cme): this generates a config file where one can setup the fan curve
-#            should work as is on Ubuntu.	
+#            should work as is on Debian.	
 if [ ! -f $daemonconfigfile ]; then
 	# Generate config file for fan speed
 	 touch $daemonconfigfile
@@ -246,7 +246,7 @@ echo '	prevblock=0' >> $powerbuttonscript
 echo '	while True:' >> $powerbuttonscript
 
 
-# NOTE(cme): AFAIK vcgencmd is not available on ubuntu, so use sysfs instead
+# NOTE(cme): AFAIK vcgencmd is not available on Debian, so use sysfs instead
 #echo '		temp = os.popen("vcgencmd measure_temp").readline()' >> $powerbuttonscript
 #echo '		temp = temp.replace("temp=","")' >> $powerbuttonscript
 #echo '		val = float(temp.replace("'"'"'C",""))' >> $powerbuttonscript
